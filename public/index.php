@@ -1,10 +1,8 @@
 <?php
-require_once './app/core/Router.php';
+require_once './app/controllers/StudentController.php';
 
-use App\Core\Router;
+use App\Controllers\StudentController;
 
-$router = new Router();
-
-$router->run();
-
+$controller = new StudentController();
+$controller->index();
 ?>
