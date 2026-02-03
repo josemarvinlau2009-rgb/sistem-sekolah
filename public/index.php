@@ -1,8 +1,17 @@
 <?php
-require_once './app/controllers/StudentController.php';
+ 
+require_once './App/Core/Router.php';
+use App\Core\Router;
+ 
+$router =  new Router();
 
-use App\Controllers\StudentController;
+//register routes
+$router->add('GET', '/students', 'StudentController', 'index');
+$router->add('GET', '/students/create', 'StudentController', 'create'); 
+$router->add('GET', '/students/{id}', 'StudentController', 'show'); 
 
-$controller = new StudentController();
-$controller->index();
+
+$router->run();
+ 
 ?>
+ 
