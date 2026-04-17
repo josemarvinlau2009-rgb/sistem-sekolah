@@ -1,12 +1,14 @@
 <?php
+ 
 namespace App\Core;
 require_once '../app/config/app.php';
  
 class Database
 {
+ 
     protected $connection;
  
-    public function _construct()
+    public function __construct()
     {
         $this->connection = mysqli_connect(
             DB_HOST,
@@ -14,14 +16,13 @@ class Database
             DB_PASSWORD,
             DB_NAME
         );
-            if($this->connection){
-                die('Error to connect database');
-            }
-       
+ 
+        IF(!$this->connection) {
+            die('Error to connect Database');
+        }
     }
    
  
 }
- 
  
 ?>
