@@ -22,7 +22,7 @@
                         <?php foreach($students as $index => $student):?>
                         <tr>
                             <td class="py-2 px-4 text-left">
-                                <?= $index?>
+                                <?= $index + 1?>
                             </td>
                             <td class="py-2 px-4 text-left">
                                 <?= $student['name']?>
