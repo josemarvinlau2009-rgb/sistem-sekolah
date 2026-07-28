@@ -10,6 +10,7 @@ use App\Http\Controllers\SchoolClass\EditController;
 use App\Http\Controllers\SchoolClass\StoreController;
 use App\Http\Controllers\SchoolClass\UpdateController;
 use App\Http\Controllers\SchoolClass\DestroyController;
+use App\Http\Controllers\MajorController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -89,4 +90,29 @@ Route::put('/{$id}', UpdateController::class)->name('update');
 
 //Logika delete SchoolClass
 Route::delete('/{$id}', DestroyController::class)->name('destroy');
+});
+
+// Manajemen Major
+Route::name('majors.')->prefix('majors')->group(function() {
+
+//Halaman daftar Major
+Route::get('/', [MajorController::class, 'index'])->name('index');
+
+//Halaman tampilkan Major
+Route::get('/{$id}', [MajorController::class, 'show'])->name('show');
+
+//Halaman tambah Major
+Route::get('/create', [MajorController::class, 'create'])->name('create');
+
+//Halaman edit Major
+Route::get('/{$id}/edit', [MajorController::class, 'edit'])->name('edit');
+
+//Logika tambah Major
+Route::post('/', [MajorController::class, 'store'])->name('store');
+
+//Logika edit Major
+Route::put('/{$id}', [MajorController::class, 'update'])->name('update');
+
+//Logika delete Major
+Route::delete('/{$id}', [MajorController::class, 'destroy'])->name('destroy');
 });
