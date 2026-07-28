@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\SchoolClass\DeleteController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\SchoolClass\IndexController;

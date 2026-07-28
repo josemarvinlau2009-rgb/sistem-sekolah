@@ -10,8 +10,8 @@ class DestroyController extends Controller
     /**
      * Handle the incoming request.
      */
-    public function __invoke(Request $request, string $id)
+    public function __invoke(Request $request)
     {
-        return "This is the page to delete school class with ID: {$id}";
+        return "Ini adalah halaman untuk menghapus kelas sekolah.";
     }
 }
