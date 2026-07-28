@@ -1,6 +1,15 @@
 <?php
 
+use App\Http\Controllers\SchoolClass\DeleteController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\TeacherController;
+use App\Http\Controllers\SchoolClass\IndexController;
+use App\Http\Controllers\SchoolClass\ShowController;
+use App\Http\Controllers\SchoolClass\CreateController;
+use App\Http\Controllers\SchoolClass\EditController;
+use App\Http\Controllers\SchoolClass\StoreController;
+use App\Http\Controllers\SchoolClass\UpdateController;
+use App\Http\Controllers\SchoolClass\DestroyController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -28,31 +37,56 @@ Route::post('/',[StudentController::class, 'store'])->name('store');
 //Logika edit siswa
 Route::put('/{$id}',[StudentController::class, 'update'])->name('update');
 
-//Logika edit siswa
+//Logika delete siswa
 Route::delete('/{$id}',[StudentController::class, 'destroy'])->name('destroy');
 });
 
-// Manajemen Siswa
-Route::name('students.')->prefix('students')->group(function() {
+// Manajemen Teacher
+Route::name('teachers.')->prefix('teachers')->group(function() {
 
-//Halaman daftar siswa
+//Halaman daftar Teacher
 Route::get('/',[TeacherController::class, 'index'])->name('index');
 
-//Halaman tampilkan siswa
+//Halaman tampilkan Teacher
 Route::get('/{$id}',[TeacherController::class, 'show'])->name('show');
 
-//Halaman tambah siswa
+//Halaman tambah Teacher
 Route::get('/create',[TeacherController::class, 'create'])->name('create');
 
-//Halaman edit siswa
+//Halaman edit Teacher
 Route::get('/{$id}/edit',[TeacherController::class, 'edit'])->name('edit');
 
-//Logika tambah siswa
+//Logika tambah Teacher
 Route::post('/',[TeacherController::class, 'store'])->name('store');
 
-//Logika edit siswa
+//Logika edit Teacher
 Route::put('/{$id}',[TeacherController::class, 'update'])->name('update');
 
-//Logika edit siswa
+//Logika delete Teacher
 Route::delete('/{$id}',[TeacherController::class, 'destroy'])->name('destroy');
+});
+
+// Manajemen SchoolClass
+Route::name('schoolclasses.')->prefix('schoolclasses')->group(function() {
+
+//Halaman daftar SchoolClass
+Route::get('/', IndexController::class)->name('index');
+
+//Halaman tampilkan SchoolClass
+Route::get('/{$id}', ShowController::class)->name('show');
+
+//Halaman tambah SchoolClass
+Route::get('/create', CreateController::class)->name('create');
+
+//Halaman edit SchoolClass
+Route::get('/{$id}/edit', EditController::class)->name('edit');
+
+//Logika tambah SchoolClass
+Route::post('/', StoreController::class)->name('store');
+
+//Logika edit SchoolClass
+Route::put('/{$id}', UpdateController::class)->name('update');
+
+//Logika delete SchoolClass
+Route::delete('/{$id}', DestroyController::class)->name('destroy');
 });
