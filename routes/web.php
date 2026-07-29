@@ -29,7 +29,7 @@ Route::get('/{$id}',[StudentController::class, 'show'])->name('show');
 Route::get('/create',[StudentController::class, 'create'])->name('create');
 
 //Halaman edit siswa
-Route::get('/{$id}/edit',[StudentController::class, 'edit'])->name('edit');
+Route::get('/edit',[StudentController::class, 'edit'])->name('edit');
 
 //Logika tambah siswa
 Route::post('/',[StudentController::class, 'store'])->name('store');
