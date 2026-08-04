@@ -32,13 +32,13 @@ Route::get('/create',[StudentController::class, 'create'])->name('create');
 Route::get('/edit',[StudentController::class, 'edit'])->name('edit');
 
 //Logika tambah siswa
-Route::post('/',[StudentController::class, 'store'])->name('store');
+Route::post('/store',[StudentController::class, 'store'])->name('store');
 
 //Logika edit siswa
-Route::put('/{$id}',[StudentController::class, 'update'])->name('update');
+Route::put('/update',[StudentController::class, 'update'])->name('update');
 
 //Logika delete siswa
-Route::delete('/{$id}',[StudentController::class, 'destroy'])->name('destroy');
+Route::delete('/destroy',[StudentController::class, 'destroy'])->name('destroy');
 });
 
 // Manajemen Teacher
@@ -54,16 +54,16 @@ Route::get('/{$id}',[TeacherController::class, 'show'])->name('show');
 Route::get('/create',[TeacherController::class, 'create'])->name('create');
 
 //Halaman edit Teacher
-Route::get('/{$id}/edit',[TeacherController::class, 'edit'])->name('edit');
+Route::get('/edit',[TeacherController::class, 'edit'])->name('edit');
 
 //Logika tambah Teacher
-Route::post('/',[TeacherController::class, 'store'])->name('store');
+Route::post('/store',[TeacherController::class, 'store'])->name('store');
 
 //Logika edit Teacher
-Route::put('/{$id}',[TeacherController::class, 'update'])->name('update');
+Route::put('/update',[TeacherController::class, 'update'])->name('update');
 
 //Logika delete Teacher
-Route::delete('/{$id}',[TeacherController::class, 'destroy'])->name('destroy');
+Route::delete('/destroy',[TeacherController::class, 'destroy'])->name('destroy');
 });
 
 // Manajemen SchoolClass
@@ -79,16 +79,16 @@ Route::get('/{$id}', ShowController::class)->name('show');
 Route::get('/create', CreateController::class)->name('create');
 
 //Halaman edit SchoolClass
-Route::get('/{$id}/edit', EditController::class)->name('edit');
+Route::get('/edit', EditController::class)->name('edit');
 
 //Logika tambah SchoolClass
-Route::post('/', StoreController::class)->name('store');
+Route::post('/store', StoreController::class)->name('store');
 
 //Logika edit SchoolClass
-Route::put('/{$id}', UpdateController::class)->name('update');
+Route::put('/update', UpdateController::class)->name('update');
 
 //Logika delete SchoolClass
-Route::delete('/{$id}', DestroyController::class)->name('destroy');
+Route::delete('/destroy', DestroyController::class)->name('destroy');
 });
 
 // Manajemen Major
@@ -104,14 +104,14 @@ Route::get('/{$id}', [MajorController::class, 'show'])->name('show');
 Route::get('/create', [MajorController::class, 'create'])->name('create');
 
 //Halaman edit Major
-Route::get('/{$id}/edit', [MajorController::class, 'edit'])->name('edit');
+Route::get('/edit', [MajorController::class, 'edit'])->name('edit');
 
 //Logika tambah Major
-Route::post('/', [MajorController::class, 'store'])->name('store');
+Route::post('/store', [MajorController::class, 'store'])->name('store');
 
 //Logika edit Major
-Route::put('/{$id}', [MajorController::class, 'update'])->name('update');
+Route::put('/update', [MajorController::class, 'update'])->name('update');
 
 //Logika delete Major
-Route::delete('/{$id}', [MajorController::class, 'destroy'])->name('destroy');
+Route::delete('/destroy', [MajorController::class, 'destroy'])->name('destroy');
 });
