@@ -3,6 +3,11 @@
  @section('title', $title)
 
  @section('content')
+
+ <x-alert>
+    Terdapat kesalahan ketika menambah data siswa baru ke dalam sistem sekolah
+ </x-alert>
+
         <div class="mb-8 flex items-end justify-between border-b border-[#E5E3DB] pb-5"> 
 
             <div> 
@@ -13,7 +18,7 @@
 
             </div> 
 
-            <a href="" class="bg-[#16213A] px-5 py-2.5 text-sm font-medium text-white transition hover:bg-[#26324f]"> 
+            <a href="{{ route('students.create') }}" class="bg-[#16213A] px-5 py-2.5 text-sm font-medium text-white transition hover:bg-[#26324f]"> 
 
                 Catat Siswa Baru 
 
@@ -75,9 +80,11 @@
 
                             <div class="flex justify-end gap-4 text-xs font-medium"> 
 
-                                <a href="" class="text-[#16213A] hover:text-[#A16207]">Lihat</a> 
-
-                                <a href="" class="text-[#16213A] hover:text-[#A16207]">Ubah</a> 
+                                <a href="{{ route('students.show', $student['id']) }}" 
+                                class="text-[#16213A] hover:text-[#A16207]">Lihat</a> 
+ 
+                                <a href="{{ route('students.edit', $student['id']) }}" 
+                                class="text-[#16213A] hover:text-[#A16207]">Ubah</a> 
 
                                 <form action="" method="POST" 
 
