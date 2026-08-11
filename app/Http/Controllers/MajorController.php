@@ -11,15 +11,41 @@ class MajorController extends Controller
      */
     public function index()
     {
-        return 'Ini adalah halaman daftar jurusan.';
-    }
+        $title = "Sistem Sekolah - Daftar Jurusan";
+$majors = [ 
+        [ 
+            'id' => 1, 
+            'code' => 'AKL', 
+            'name' => 'Akuntansi dan Keuangan Lembaga', 
+            'description' => 'Program keahlian yang membekali murid dengan kompetensi pencatatan dan pelaporan keuangan.', 
+        ], 
+        [ 
+            'id' => 2, 
+            'code' => 'TKJ', 
+            'name' => 'Teknik Komputer dan Jaringan', 
+            'description' => 'Program keahlian yang membekali murid dengan kompetensi instalasi, konfigurasi, dan pemeliharaan jaringan komputer.', 
+        ], 
+        [ 
+            'id' => 3, 
+            'code' => 'BID', 
+            'name' => 'Bisnis Digital', 
+            'description' => 'Program keahlian yang membekali murid dengan kompetensi pemasaran dan pengelolaan bisnis berbasis digital.', 
+        ], 
+];  
+        return view('majors.index', [
+            'title' => $title,
+            'majors' => $majors
+        ]);    }
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        return 'Ini adalah halaman untuk menambahkan jurusan baru.';
+        $title = "Sistem Sekolah - Tambah Jurusan";
+        return view('majors.create', [
+            'title' => $title
+        ]);
     }
 
     /**
@@ -27,7 +53,10 @@ class MajorController extends Controller
      */
     public function store(Request $request)
     {
-        return 'Ini adalah halaman untuk menyimpan data jurusan baru.';
+        $title = "Sistem Sekolah - Tambah Jurusan";
+        return view('majors.create', [
+            'title' => $title
+        ]);
     }
 
     /**
@@ -35,7 +64,11 @@ class MajorController extends Controller
      */
     public function show(string $id)
     {
-        return "Ini adalah halaman detail jurusan dengan ID: {$id}";
+        $title = "Sistem Sekolah - Detail Jurusan";
+        return view('majors.show', [
+            'title' => $title,
+            'id' => $id
+        ]);
     }
 
     /**

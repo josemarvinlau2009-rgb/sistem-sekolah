@@ -22,14 +22,14 @@ Route::name('students.')->prefix('students')->group(function() {
 //Halaman daftar siswa
 Route::get('/',[StudentController::class, 'index'])->name('index');
 
-//Halaman tampilkan siswa
-Route::get('/{$id}',[StudentController::class, 'show'])->name('show');
-
 //Halaman tambah siswa
 Route::get('/create',[StudentController::class, 'create'])->name('create');
 
+//Halaman tampilkan siswa
+Route::get('/{id}',[StudentController::class, 'show'])->name('show');
+
 //Halaman edit siswa
-Route::get('/edit',[StudentController::class, 'edit'])->name('edit');
+Route::get('/edit/{id}',[StudentController::class, 'edit'])->name('edit');
 
 //Logika tambah siswa
 Route::post('/store',[StudentController::class, 'store'])->name('store');
@@ -47,14 +47,14 @@ Route::name('teachers.')->prefix('teachers')->group(function() {
 //Halaman daftar Teacher
 Route::get('/',[TeacherController::class, 'index'])->name('index');
 
-//Halaman tampilkan Teacher
-Route::get('/{$id}',[TeacherController::class, 'show'])->name('show');
-
 //Halaman tambah Teacher
 Route::get('/create',[TeacherController::class, 'create'])->name('create');
 
+//Halaman tampilkan Teacher
+Route::get('/{id}',[TeacherController::class, 'show'])->name('show');
+
 //Halaman edit Teacher
-Route::get('/edit',[TeacherController::class, 'edit'])->name('edit');
+Route::get('/edit/{id}',[TeacherController::class, 'edit'])->name('edit');
 
 //Logika tambah Teacher
 Route::post('/store',[TeacherController::class, 'store'])->name('store');
@@ -72,14 +72,14 @@ Route::name('schoolclasses.')->prefix('schoolclasses')->group(function() {
 //Halaman daftar SchoolClass
 Route::get('/', IndexController::class)->name('index');
 
-//Halaman tampilkan SchoolClass
-Route::get('/{$id}', ShowController::class)->name('show');
-
 //Halaman tambah SchoolClass
 Route::get('/create', CreateController::class)->name('create');
 
+//Halaman tampilkan SchoolClass
+Route::get('/{id}', ShowController::class)->name('show');
+
 //Halaman edit SchoolClass
-Route::get('/edit', EditController::class)->name('edit');
+Route::get('/edit/{id}', EditController::class)->name('edit');
 
 //Logika tambah SchoolClass
 Route::post('/store', StoreController::class)->name('store');
@@ -97,14 +97,14 @@ Route::name('majors.')->prefix('majors')->group(function() {
 //Halaman daftar Major
 Route::get('/', [MajorController::class, 'index'])->name('index');
 
-//Halaman tampilkan Major
-Route::get('/{$id}', [MajorController::class, 'show'])->name('show');
-
 //Halaman tambah Major
 Route::get('/create', [MajorController::class, 'create'])->name('create');
 
+//Halaman tampilkan Major
+Route::get('/{id}', [MajorController::class, 'show'])->name('show');
+
 //Halaman edit Major
-Route::get('/edit', [MajorController::class, 'edit'])->name('edit');
+Route::get('/edit/{id}', [MajorController::class, 'edit'])->name('edit');
 
 //Logika tambah Major
 Route::post('/store', [MajorController::class, 'store'])->name('store');
