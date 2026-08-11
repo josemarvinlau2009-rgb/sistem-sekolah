@@ -12,30 +12,31 @@ class MajorController extends Controller
     public function index()
     {
         $title = "Sistem Sekolah - Daftar Jurusan";
-$majors = [ 
-        [ 
-            'id' => 1, 
-            'code' => 'AKL', 
-            'name' => 'Akuntansi dan Keuangan Lembaga', 
-            'description' => 'Program keahlian yang membekali murid dengan kompetensi pencatatan dan pelaporan keuangan.', 
-        ], 
-        [ 
-            'id' => 2, 
-            'code' => 'TKJ', 
-            'name' => 'Teknik Komputer dan Jaringan', 
-            'description' => 'Program keahlian yang membekali murid dengan kompetensi instalasi, konfigurasi, dan pemeliharaan jaringan komputer.', 
-        ], 
-        [ 
-            'id' => 3, 
-            'code' => 'BID', 
-            'name' => 'Bisnis Digital', 
-            'description' => 'Program keahlian yang membekali murid dengan kompetensi pemasaran dan pengelolaan bisnis berbasis digital.', 
-        ], 
-];  
+        $majors = [
+            [
+                'id' => 1,
+                'code' => 'AKL',
+                'name' => 'Akuntansi dan Keuangan Lembaga',
+                'description' => 'Program keahlian yang membekali murid dengan kompetensi pencatatan dan pelaporan keuangan.',
+            ],
+            [
+                'id' => 2,
+                'code' => 'TKJ',
+                'name' => 'Teknik Komputer dan Jaringan',
+                'description' => 'Program keahlian yang membekali murid dengan kompetensi instalasi, konfigurasi, dan pemeliharaan jaringan komputer.',
+            ],
+            [
+                'id' => 3,
+                'code' => 'BID',
+                'name' => 'Bisnis Digital',
+                'description' => 'Program keahlian yang membekali murid dengan kompetensi pemasaran dan pengelolaan bisnis berbasis digital.',
+            ],
+        ];
         return view('majors.index', [
             'title' => $title,
             'majors' => $majors
-        ]);    }
+        ]);
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -76,7 +77,10 @@ $majors = [
      */
     public function edit()
     {
-        return "Ini adalah halaman untuk mengedit jurusan.";
+        $title = "Sistem Sekolah - Edit Jurusan";
+        return view('majors.edit', [
+            'title' => $title
+        ]);
     }
 
     /**
