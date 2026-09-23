@@ -60,10 +60,10 @@ Route::get('/edit/{id}',[TeacherController::class, 'edit'])->name('edit');
 Route::post('/store',[TeacherController::class, 'store'])->name('store');
 
 //Logika edit Teacher
-Route::put('/update',[TeacherController::class, 'update'])->name('update');
+Route::put('/update/{id}',[TeacherController::class, 'update'])->name('update');
 
 //Logika delete Teacher
-Route::delete('/destroy',[TeacherController::class, 'destroy'])->name('destroy');
+Route::delete('/destroy/{id}',[TeacherController::class, 'destroy'])->name('destroy');
 });
 
 // Manajemen SchoolClass

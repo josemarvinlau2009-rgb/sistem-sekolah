@@ -9,37 +9,18 @@ class TeacherController extends Controller
     public function index()
     {
         $title = "Sistem Sekolah - Daftar Guru";
-        $teachers = [ 
-        [ 
-            'id' => 1, 
-            'nip' => '198501012024', 
-            'name' => 'Budi Santoso', 
-            'gender' => 'Laki-Laki', 
-            'subject' => 'Akuntansi Dasar', 
-            'phone' => '081234560001', 
-            'status' => 'Aktif', 
-    ], 
-    [ 
-            'id' => 2, 
-            'nip' => '198703152024', 
-            'name' => 'Siti Aminah', 
-            'gender' => 'Perempuan', 
-            'subject' => 'Jaringan Komputer', 
-            'phone' => '081234560002', 
-            'status' => 'Aktif', 
-    ] 
-]; 
         return view('teachers.index', [
             'title' => $title,
-            'teachers' => $teachers
+            'teachers' => $this->teachers(),
         ]);
     }
         public function show(string $id)
     {
         $title = "Sistem Sekolah - Detail Guru";
         return view('teachers.show', [
-            'title' => $title
-        ]);    
+            'title' => $title,
+            'teacher' => $this->findTeacher($id),
+        ]);
     }
         public function create()
     {
@@ -48,22 +29,57 @@ class TeacherController extends Controller
             'title' => $title
         ]);      
     }
-        public function edit()
+        public function edit(string $id)
     {
         $title = "Sistem Sekolah - Edit Guru";
         return view('teachers.edit', [
-            'title' => $title
-        ]);       }
+            'title' => $title,
+            'teacher' => $this->findTeacher($id),
+        ]);
+    }
         public function store()
     {
         return "Ini adalah halaman untuk menyimpan data guru baru.";
     }
-        public function update(Request $request)
+        public function update(Request $request, string $id)
     {
         return "Ini adalah halaman untuk memperbarui guru.";
     }
-        public function destroy()
+        public function destroy(string $id)
     {
         return "Ini adalah halaman untuk menghapus guru.";
+    }
+
+    private function teachers(): array
+    {
+        return [
+            [
+                'id' => 1,
+                'nip' => '198501012024',
+                'name' => 'Budi Santoso',
+                'gender' => 'Laki-Laki',
+                'subject' => 'Akuntansi Dasar',
+                'phone' => '081234560001',
+                'status' => 'Aktif',
+            ],
+            [
+                'id' => 2,
+                'nip' => '198703152024',
+                'name' => 'Siti Aminah',
+                'gender' => 'Perempuan',
+                'subject' => 'Jaringan Komputer',
+                'phone' => '081234560002',
+                'status' => 'Aktif',
+            ],
+        ];
+    }
+
+    private function findTeacher(string $id): array
+    {
+        $teacher = collect($this->teachers())->firstWhere('id', (int) $id);
+
+        abort_if($teacher === null, 404);
+
+        return $teacher;
     }
 }
