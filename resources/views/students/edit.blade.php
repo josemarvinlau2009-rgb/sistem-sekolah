@@ -3,7 +3,7 @@
 @section('title', $title)
 
 @section('content')
- <div class="mb-8 border-b border-[#E5E3DB] pb-5">
+<div class="mb-8 border-b border-[#E5E3DB] pb-5">
             <a href="{{ route('students.index') }}" class="text-xs uppercase tracking-[0.15em] text-slate-400 hover:text-[#A16207]">&larr; Buku
                 Induk</a>
             <h1 class="font-display mt-2 text-3xl font-semibold text-[#16213A]">Ubah Data Siswa</h1>
@@ -12,17 +12,17 @@
         </div>
 
         <form action="{{ route('students.update', ['student' => $student->id]) }}" method="POST" class="space-y-6 border border-[#E5E3DB] bg-white p-8">
-        @csrf
-        @method('PUT')    
-        <div>
+            @csrf
+            @method('PUT')
+            <div>
                 <label for="nis"
                     class="mb-1.5 block text-xs font-semibold uppercase tracking-[0.1em] text-[#16213A]">NIS</label>
-                <input type="text" id="nis" name="nis" value="{{ old('nis', $student->nis) }}" placeholder="Contoh: 2024010"
+                <input type="text" id="nis" name="nis" value="{{ old('nis', $student->nis) }}"
                     class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
                 @error('nis')
-                    <span class="text-red-500 py-2">{{ $message }}</span>
+                    <span class="text-xs text-red-500 py-2">{{ $message }}</span>
                 @enderror
-                </div>
+            </div>
 
             <div>
                 <label for="name"
@@ -31,9 +31,9 @@
                 <input type="text" id="name" name="name" value="{{ old('name', $student->name) }}"
                     class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
                 @error('name')
-                    <span class="text-red-500 py-2">{{ $message }}</span>
+                    <span class="text-xs text-red-500 py-2">{{ $message }}</span>
                 @enderror
-                </div>
+            </div>
 
             <div>
                 <label for="gender"
@@ -41,12 +41,12 @@
                     Kelamin</label>
                 <select id="gender" name="gender"
                     class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
-                    <option value="">Pilih Jenis Kelamin</option>
-                    <option value="Laki-laki" @selected(old('gender', $student->gender) == 'Laki-laki')>Laki-laki</option>
-                    <option value="Perempuan" @selected(old('gender', $student->gender) == 'Perempuan')>Perempuan</option>
+                    <option value="">Pilih Gender</option>
+                    <option value="Laki-laki" @selected(old('gender', $student->gender) === 'Laki-laki')>Laki-laki</option>
+                    <option value="Perempuan" @selected(old('gender', $student->gender) === 'Perempuan')>Perempuan</option>
                 </select>
                 @error('gender')
-                    <span class="text-red-500 py-2">{{ $message }}</span>
+                    <span class="text-xs text-red-500 py-2">{{ $message }}</span>
                 @enderror
             </div>
 
@@ -56,12 +56,12 @@
                 <select id="major" name="major"
                     class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
                     <option value="">Pilih Jurusan</option>
-                    <option value="AKL" @selected(old('major', $student->major) == 'AKL')>AKL</option>
-                    <option value="TKJ" @selected(old('major', $student->major) == 'TKJ')>TKJ</option>
-                    <option value="BiD" @selected(old('major', $student->major) == 'BiD')>BiD</option>
+                    <option value="AKL" @selected(old('major', $student->major) === 'AKL')>AKL</option>
+                    <option value="TKJ" @selected(old('major', $student->major) === 'TKJ')>TKJ</option>
+                    <option value="BiD" @selected(old('major', $student->major) === 'BiD')>BiD</option>
                 </select>
                 @error('major')
-                    <span class="text-red-500 py-2">{{ $message }}</span>
+                    <span class="text-xs text-red-500 py-2">{{ $message }}</span>
                 @enderror
             </div>
 
@@ -71,7 +71,7 @@
                 <input type="text" id="class" name="class" value="{{ old('class', $student->class) }}"
                     class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
                 @error('class')
-                    <span class="text-red-500 py-2">{{ $message }}</span>
+                    <span class="text-xs text-red-500 py-2">{{ $message }}</span>
                 @enderror
             </div>
 
@@ -82,5 +82,4 @@
                     Catatan</button>
             </div>
         </form>
-
 @endsection

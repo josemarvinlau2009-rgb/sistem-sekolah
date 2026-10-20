@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', $title)
+@section('title',$title)
 
 @section('content')
 <a href="{{ route('students.index') }}" class="text-xs uppercase tracking-[0.15em] text-slate-400 hover:text-[#A16207]">&larr; Buku
